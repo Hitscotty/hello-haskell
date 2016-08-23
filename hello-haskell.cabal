@@ -2,7 +2,7 @@
 -- documentation, see http://haskell.org/cabal/users-guide/
 
 -- The name of the package.
-name:                hello-haskell
+name:                hello
 
 -- The package version.  See the Haskell package versioning policy (PVP) 
 -- for standards guiding when and how versions should be incremented.
@@ -13,16 +13,16 @@ name:                hello-haskell
 version:             0.1.0.0
 
 -- A short (one-line) description of the package.
--- synopsis: my first project          
+synopsis: my first project          
 
 -- A longer description of the package.
--- description: using Haskell Programming: From First Principles to create my first project using cabal         
+description: using Haskell Programming: From First Principles to create my first project using cabal         
 
 -- The license under which the package is released.
 -- license:             
 
 -- The file containing the license text.
-license-file:        LICENSE
+-- license-file:        LICENSE
 
 -- The package author(s).
 author:              Jonathan
@@ -45,19 +45,27 @@ build-type:          Simple
 -- Constraint on the version of Cabal needed to build this package.
 cabal-version:       >=1.10
 
-
+library
+  exposed-modules:     Hello
+  ghc-options:         -Wall
+  hs-source-dirs:      src
+  build-depends:       base >=4.8 && <4.9
+  default-langauage:   haskel2010
+  
+        
 executable hello-haskell
   -- .hs or .lhs file containing the Main module.
   main-is:             Main.hs
   
   -- Modules included in this executable, other than Main.
-  -- other-modules:       
+  --other-modules:       Hello
   
   -- LANGUAGE extensions used by modules in this package.
   -- other-extensions:    
   
   -- Other library packages from which modules are imported.
   build-depends:       base >=4.8 && <4.9
+                     , hello
   
   -- Directories containing source files.
   hs-source-dirs: src      
@@ -65,5 +73,5 @@ executable hello-haskell
   -- Base language which the package is written in.
   default-language:    Haskell2010
 
-  ghc-options:-Wall-fwarn-tabs
+  ghc-options: -Wall
   
